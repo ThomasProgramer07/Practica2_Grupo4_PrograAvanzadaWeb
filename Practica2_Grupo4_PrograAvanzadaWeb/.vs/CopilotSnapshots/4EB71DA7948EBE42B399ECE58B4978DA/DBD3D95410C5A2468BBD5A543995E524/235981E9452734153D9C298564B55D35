@@ -1,0 +1,68 @@
+﻿@* Views/Categoria/Index.cshtml *@
+@model List<Practica2_Grupo4_PrograAvanzadaWeb.BLL.Dtos.CategoriaDto>
+@{
+    ViewData["Title"] = "Categorías";
+}
+
+<h1>Categorías de Productos Médicos</h1>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalCrearCategoria">
+    Nueva Categoría
+</button>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var categoria in Model)
+        {
+            <tr>
+                <td>@categoria.Nombre</td>
+                <td>@categoria.Descripcion</td>
+                <td class="d-flex gap-2">
+                    <button type="button"
+                            class="btn btn-sm btn-warning btn-editar-categoria"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalEditarCategoria"
+                            data-id="@categoria.Id"
+                            data-nombre="@categoria.Nombre"
+                            data-descripcion="@categoria.Descripcion">
+                        Editar
+                    </button>
+
+                    <form asp-action="DeleteCategoria" asp-controller="Categoria" method="post" class="d-inline">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@categoria.Id" />
+                        <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<partial name="_Crear" model="new Practica2_Grupo4_PrograAvanzadaWeb.BLL.Dtos.CategoriaDto()" />
+<partial name="_Editar" model="new Practica2_Grupo4_PrograAvanzadaWeb.BLL.Dtos.CategoriaDto()" />
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        document.querySelectorAll('.btn-editar-categoria').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.getElementById('IdEditar').value = this.dataset.id || '';
+                document.getElementById('NombreEditar').value = this.dataset.nombre || '';
+                document.getElementById('DescripcionEditar').value = this.dataset.descripcion || '';
+            });
+        });
+    </script>
+}

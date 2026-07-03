@@ -1,0 +1,37 @@
+﻿@* Views/Categoria/Index.cshtml *@
+@model List<Practica2_Grupo4_PrograAvanzadaWeb.BLL.Dtos.CategoriaDto>
+@{
+    ViewData["Title"] = "Categorías";
+}
+
+<h1>Categorías de Productos Médicos</h1>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<a asp-action="_Crear" class="btn btn-primary mb-3">Nueva Categoría</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var categoria in Model)
+        {
+            <tr>
+                <td>@categoria.Nombre</td>
+                <td>@categoria.Descripcion</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@categoria.Id" class="btn btn-sm btn-warning">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@categoria.Id" class="btn btn-sm btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

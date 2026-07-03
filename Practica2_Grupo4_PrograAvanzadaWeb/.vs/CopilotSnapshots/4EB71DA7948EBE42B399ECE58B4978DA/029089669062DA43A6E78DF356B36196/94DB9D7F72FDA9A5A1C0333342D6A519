@@ -1,0 +1,6 @@
+﻿namespace Practica2_Grupo4_PrograAvanzadaWeb.DAL.Repositorios.Categoria;
+
+public interface ICategoriaRepositorio : IRepositorioGenerico<Entidades.Categoria>
+{
+    Task<List<Entidades.Categoria>> GetCategorias();
+}

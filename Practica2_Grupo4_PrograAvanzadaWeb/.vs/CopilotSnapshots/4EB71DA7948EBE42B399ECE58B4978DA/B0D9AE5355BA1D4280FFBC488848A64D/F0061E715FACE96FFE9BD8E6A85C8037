@@ -1,0 +1,46 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Practica2_Grupo4_PrograAvanzadaWeb.BLL;
+using Practica2_Grupo4_PrograAvanzadaWeb.BLL.Services.Categoria;
+using Practica2_Grupo4_PrograAvanzadaWeb.BLL.Services.Producto;
+using Practica2_Grupo4_PrograAvanzadaWeb.DAL.Data;
+using Practica2_Grupo4_PrograAvanzadaWeb.DAL.Repositorios.Categoria;
+using Practica2_Grupo4_PrograAvanzadaWeb.DAL.Repositorios.Producto;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Repositorios
+builder.Services.AddScoped<ICategoriaRepositorio, CategoriaRepositorio>();
+builder.Services.AddScoped<IProductoRepositorio, ProductoRepositorio>();
+
+// Servicios
+builder.Services.AddScoped<ICategoriaServicio, CategoriaServicio>();
+builder.Services.AddScoped<IProductoServicio, ProductoServicio>();
+
+// Servicios Terceros
+builder.Services.AddAutoMapper(cfg => { }, typeof(MapeoClases));
+
+var app = builder.Build();
+
+
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+app.UseRouting();
+app.UseAuthorization();
+app.MapStaticAssets();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}")
+    .WithStaticAssets();
+
+app.Run();

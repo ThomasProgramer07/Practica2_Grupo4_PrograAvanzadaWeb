@@ -6,5 +6,10 @@ public interface ICategoriaServicio
 {
     Task<Respuesta<List<CategoriaDto>>> GetCategorias();
     Task<Respuesta<CategoriaDto?>> GetCategoriaById(int id);
-    // agregar aquí CrearCategoria, UpdateCategoria, DeleteCategoria
+
+    Task<Respuesta<CategoriaDto>> CreateCategoria(CategoriaDto categoria);
+    Task<Respuesta<CategoriaDto>> UpdateCategoria(CategoriaDto categoria);
+    Task<Respuesta<CategoriaDto>> DeleteCategoria(int id);
+
+
 }

@@ -1,0 +1,55 @@
+@* Views/Categoria/_Editar.cshtml *@
+@model Practica2_Grupo4_PrograAvanzadaWeb.BLL.Dtos.CategoriaDto
+
+<div class="modal fade" id="modalEditarCategoria" tabindex="-1" aria-labelledby="labelModalEditarCategoria" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border-0 shadow">
+
+            <div class="modal-header text-white" style="background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);">
+                <h5 class="modal-title fw-semibold" id="labelModalEditarCategoria">
+                    <i class="bi bi-pencil-square me-2"></i>Editar Categoría
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body p-4">
+                <form id="formEditarCategoria" asp-action="UpdateCategoria" asp-controller="Categoria" method="post" class="row g-3">
+                    @Html.AntiForgeryToken()
+                    <input asp-for="Id" type="hidden" id="IdEditar" />
+
+                    <div class="col-md-6">
+                        <label asp-for="Nombre" class="form-label fw-medium">
+                            <i class="bi bi-person text-primary me-1"></i>Nombre
+                        </label>
+                        <input asp-for="Nombre" class="form-control" id="NombreEditar" />
+                        <span asp-validation-for="Nombre" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Descripcion" class="form-label fw-medium">
+                            <i class="bi bi-person-badge text-primary me-1"></i>Descripción
+                        </label>
+                        <input asp-for="Descripcion" class="form-control" id="DescripcionEditar" />
+                        <span asp-validation-for="Descripcion" class="text-danger small"></span>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="modal-footer border-top px-4 py-3">
+                <button type="button" class="btn btn-light border" data-bs-dismiss="modal">
+                    <i class="bi bi-x-lg me-1"></i>Cerrar
+                </button>
+                <button type="submit" class="btn btn-primary" form="formEditarCategoria" id="btnEditarCategoria">
+                    <i class="bi bi-floppy me-1"></i>Guardar cambios
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
