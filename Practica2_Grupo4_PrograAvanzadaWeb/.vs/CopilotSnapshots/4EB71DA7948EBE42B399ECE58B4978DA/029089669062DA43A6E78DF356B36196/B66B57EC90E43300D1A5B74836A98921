@@ -1,0 +1,126 @@
+﻿using AutoMapper;
+using Practica2_Grupo4_PrograAvanzadaWeb.BLL.Dtos;
+using Practica2_Grupo4_PrograAvanzadaWeb.DAL.Repositorios.Categoria;
+
+namespace Practica2_Grupo4_PrograAvanzadaWeb.BLL.Services.Categoria;
+
+public class CategoriaServicio : ICategoriaServicio
+{
+    private readonly ICategoriaRepositorio _repositorio;
+    private readonly IMapper _mapper;
+
+    public CategoriaServicio(ICategoriaRepositorio repositorio, IMapper mapper)
+    {
+        _repositorio = repositorio;
+        _mapper = mapper;
+    }
+
+    public async Task<Respuesta<List<CategoriaDto>>> GetCategorias()
+    {
+        var categorias = await _repositorio.GetCategorias();
+        return new Respuesta<List<CategoriaDto>>
+        {
+            Exito = true,
+            Datos = _mapper.Map<List<CategoriaDto>>(categorias)
+        };
+    }
+
+    public async Task<Respuesta<CategoriaDto?>> GetCategoriaById(int id)
+    {
+        var categoria = await _repositorio.GetById(id);
+        if (categoria == null)
+        {
+            return new Respuesta<CategoriaDto?>
+            {
+                Exito = false,
+                Mensaje = "Categoría no encontrada"
+            };
+        }
+
+        return new Respuesta<CategoriaDto?>
+        {
+            Exito = true,
+            Datos = _mapper.Map<CategoriaDto>(categoria)
+        };
+    }
+
+    public async Task<Respuesta<CategoriaDto>> CreateCategoria(CategoriaDto categoria)
+    {
+        if (categoria == null)
+        {
+            return new Respuesta<CategoriaDto>
+            {
+                Exito = false,
+                Mensaje = "Categoría inválida"
+            };
+        }
+
+        var entity = _mapper.Map<DAL.Entidades.Categoria>(categoria);
+        var creada = await _repositorio.Create(entity);
+
+        return new Respuesta<CategoriaDto>
+        {
+            Exito = true,
+            Datos = _mapper.Map<CategoriaDto>(creada)
+        };
+    }
+
+    public async Task<Respuesta<CategoriaDto>> DeleteCategoria(int id)
+    {
+        var eliminada = await _repositorio.Delete(id);
+        if (!eliminada)
+        {
+            return new Respuesta<CategoriaDto>
+            {
+                Exito = false,
+                Mensaje = "No se pudo eliminar la categoría"
+            };
+        }
+
+        return new Respuesta<CategoriaDto>
+        {
+            Exito = true
+        };
+    }
+
+    public async Task<Respuesta<CategoriaDto>> UpdateCategoria(CategoriaDto categoria)
+    {
+        if (categoria == null)
+        {
+            return new Respuesta<CategoriaDto>
+            {
+                Exito = false,
+                Mensaje = "Categoría inválida"
+            };
+        }
+
+        var existing = await _repositorio.GetById(categoria.Id);
+        if (existing == null)
+        {
+            return new Respuesta<CategoriaDto>
+            {
+                Exito = false,
+                Mensaje = "Categoría no encontrada"
+            };
+        }
+
+        existing.Nombre = categoria.Nombre;
+        existing.Descripcion = categoria.Descripcion;
+
+        var actualizada = await _repositorio.Update(existing);
+        if (!actualizada)
+        {
+            return new Respuesta<CategoriaDto>
+            {
+                Exito = false,
+                Mensaje = "No se pudo actualizar la categoría"
+            };
+        }
+
+        return new Respuesta<CategoriaDto>
+        {
+            Exito = true,
+            Datos = _mapper.Map<CategoriaDto>(existing)
+        };
+    }
+}

@@ -1,0 +1,54 @@
+﻿@* Views/Categoria/_Crear.cshtml *@
+@model Practica2_Grupo4_PrograAvanzadaWeb.BLL.Dtos.CategoriaDto
+
+<div class="modal fade" id="modalCrearCategoria" tabindex="-1" aria-labelledby="labelModalCrearCategoria" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow">
+
+            <div class="modal-header text-white" style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);">
+                <h5 class="modal-title fw-semibold" id="labelModalCrearCategoria">
+                    <i class="bi bi-person-plus-fill me-2"></i>Nueva Categoría
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body p-4">
+                <form id="formCrearCategoria" asp-action="CreateCategoria" asp-controller="Categoria" method="post" class="row g-3">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" asp-for="Id" />
+
+                    <div class="col-md-6">
+                        <label asp-for="Nombre" class="form-label fw-medium">
+                            <i class="bi bi-person text-primary me-1"></i>Nombre
+                        </label>
+                        <input asp-for="Nombre" class="form-control" placeholder="Nombre" />
+                        <span asp-validation-for="Nombre" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Descripcion" class="form-label fw-medium">
+                            <i class="bi bi-person-badge text-primary me-1"></i>Descripción
+                        </label>
+                        <input asp-for="Descripcion" class="form-control" placeholder="Descripción" />
+                        <span asp-validation-for="Descripcion" class="text-danger small"></span>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="modal-footer border-top px-4 py-3">
+                <button type="button" class="btn btn-light border" data-bs-dismiss="modal">
+                    <i class="bi bi-x-lg me-1"></i>Cerrar
+                </button>
+                <button type="button" class="btn btn-primary" id="btnGuardarDuenno">
+                    <i class="bi bi-floppy me-1"></i>Guardar
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

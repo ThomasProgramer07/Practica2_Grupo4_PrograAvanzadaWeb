@@ -1,0 +1,84 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Practica2_Grupo4_PrograAvanzadaWeb.BLL.Dtos;
+using Practica2_Grupo4_PrograAvanzadaWeb.BLL.Services.Categoria;
+using Practica2_Grupo4_PrograAvanzadaWeb.DAL.Entidades; 
+
+namespace Practica2_Grupo4_PrograAvanzadaWeb.Controllers;
+
+public class CategoriaController : Controller
+{
+    private readonly ICategoriaServicio _categoriaServicio;
+
+    public CategoriaController(ICategoriaServicio categoriaServicio)
+    {
+        _categoriaServicio = categoriaServicio;
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Index()
+    {
+        var respuesta = await _categoriaServicio.GetCategorias();
+        return View(respuesta.Datos ?? new List<CategoriaDto>());
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> CreateCategoria(CategoriaDto categoria)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        var respuesta = await _categoriaServicio.CreateCategoria(categoria);
+        if (!respuesta.Exito)
+        {
+            return BadRequest(respuesta);
+        }
+
+        return RedirectToAction(nameof(Index));
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetCategoriaById(int id)
+    {
+        var respuesta = await _categoriaServicio.GetCategoriaById(id);
+        if (!respuesta.Exito)
+        {
+            return NotFound(respuesta);
+        }
+
+        return Json(respuesta.Datos);
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> UpdateCategoria(CategoriaDto categoria)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        var respuesta = await _categoriaServicio.UpdateCategoria(categoria);
+        if (!respuesta.Exito)
+        {
+            return BadRequest(respuesta);
+        }
+
+        return RedirectToAction(nameof(Index));
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteCategoria(int id)
+    {
+        var respuesta = await _categoriaServicio.DeleteCategoria(id);
+        if (!respuesta.Exito)
+        {
+            return BadRequest(respuesta);
+        }
+
+        return RedirectToAction(nameof(Index));
+    }
+}
