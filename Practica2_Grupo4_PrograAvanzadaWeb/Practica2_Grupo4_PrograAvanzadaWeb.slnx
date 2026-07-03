@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="../Practica2_Grupo4_PrograAvanzadaWeb.BLL/Practica2_Grupo4_PrograAvanzadaWeb.BLL.csproj" />
+  <Project Path="../Practica2_Grupo4_PrograAvanzadaWeb.DAL/Practica2_Grupo4_PrograAvanzadaWeb.DAL.csproj" />
+  <Project Path="Practica2_Grupo4_PrograAvanzadaWeb.csproj" />
+</Solution>

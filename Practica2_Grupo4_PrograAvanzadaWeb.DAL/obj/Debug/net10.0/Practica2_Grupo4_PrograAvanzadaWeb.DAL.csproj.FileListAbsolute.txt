@@ -1,0 +1,14 @@
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.DAL\bin\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.DAL.deps.json
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.DAL\bin\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.DAL.runtimeconfig.json
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.DAL\bin\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.DAL.dll
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.DAL\bin\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.DAL.pdb
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.DAL\obj\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.DAL.csproj.AssemblyReference.cache
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.DAL\obj\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.DAL\obj\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.DAL.AssemblyInfoInputs.cache
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.DAL\obj\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.DAL.AssemblyInfo.cs
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.DAL\obj\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.DAL\obj\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.DAL.dll
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.DAL\obj\Debug\net10.0\refint\Practica2_Grupo4_PrograAvanzadaWeb.DAL.dll
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.DAL\obj\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.DAL.pdb
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.DAL\obj\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.DAL.genruntimeconfig.cache
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.DAL\obj\Debug\net10.0\ref\Practica2_Grupo4_PrograAvanzadaWeb.DAL.dll

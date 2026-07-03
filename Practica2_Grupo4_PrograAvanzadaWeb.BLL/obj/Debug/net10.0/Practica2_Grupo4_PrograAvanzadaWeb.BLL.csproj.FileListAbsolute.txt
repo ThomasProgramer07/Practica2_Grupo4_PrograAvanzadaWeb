@@ -1,0 +1,15 @@
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.BLL\obj\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.BLL.csproj.AssemblyReference.cache
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.BLL\obj\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.BLL\obj\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.BLL.AssemblyInfoInputs.cache
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.BLL\obj\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.BLL.AssemblyInfo.cs
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.BLL\obj\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.BLL.csproj.CoreCompileInputs.cache
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.BLL\bin\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.BLL.deps.json
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.BLL\bin\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.BLL.dll
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.BLL\bin\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.BLL.pdb
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.BLL\bin\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.DAL.dll
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.BLL\bin\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.DAL.pdb
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.BLL\obj\Debug\net10.0\Practica.080DC22A.Up2Date
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.BLL\obj\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.BLL.dll
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.BLL\obj\Debug\net10.0\refint\Practica2_Grupo4_PrograAvanzadaWeb.BLL.dll
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.BLL\obj\Debug\net10.0\Practica2_Grupo4_PrograAvanzadaWeb.BLL.pdb
+C:\Users\Thomas\Documents\GitHub\Practica2_Grupo4_PrograAvanzadaWeb\Practica2_Grupo4_PrograAvanzadaWeb.BLL\obj\Debug\net10.0\ref\Practica2_Grupo4_PrograAvanzadaWeb.BLL.dll
