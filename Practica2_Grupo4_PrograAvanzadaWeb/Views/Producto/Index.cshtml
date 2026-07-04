@@ -1,7 +1,6 @@
-﻿@* Views/Producto/Index.cshtml *@
-@model List<Practica2_Grupo4_PrograAvanzadaWeb.BLL.Dtos.ProductoDto>
+﻿@model List<Practica2_Grupo4_PrograAvanzadaWeb.BLL.Dtos.ProductoDto>
 @{
-    ViewData["Title"] = "Productos";
+    ViewData["Title"] = "Productos Médicos";
 }
 
 <h1>Productos Médicos</h1>
@@ -11,7 +10,9 @@
     <div class="alert alert-danger">@TempData["Error"]</div>
 }
 
-<a asp-action="Create" class="btn btn-primary mb-3">Nuevo Producto</a>
+<button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalCrearProducto">
+    Nuevo Producto
+</button>
 
 <table class="table table-striped">
     <thead>
@@ -33,11 +34,77 @@
                 <td>₡@producto.Precio.ToString("N2")</td>
                 <td>@producto.Cantidad</td>
                 <td>@producto.NombreCategoria</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@producto.Id" class="btn btn-sm btn-warning">Editar</a>
-                    <a asp-action="Delete" asp-route-id="@producto.Id" class="btn btn-sm btn-danger">Eliminar</a>
+                <td class="d-flex gap-2">
+                    <button type="button"
+                            class="btn btn-sm btn-warning btn-editar-producto"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalEditarProducto"
+                            data-id="@producto.Id"
+                            data-nombre="@producto.Nombre"
+                            data-descripcion="@producto.Descripcion"
+                            data-precio="@producto.Precio"
+                            data-cantidad="@producto.Cantidad"
+                            data-fkcategoria="@producto.FkCategoria">
+                        Editar
+                    </button>
+
+                    <button type="button"
+                            class="btn btn-sm btn-danger btn-eliminar-producto"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalConfirmarEliminarProducto"
+                            data-id="@producto.Id"
+                            data-nombre="@producto.Nombre">
+                        Eliminar
+                    </button>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+<partial name="_Crear" model="new Practica2_Grupo4_PrograAvanzadaWeb.BLL.Dtos.ProductoDto()" />
+
+<div class="modal fade" id="modalConfirmarEliminarProducto" tabindex="-1" aria-labelledby="labelModalConfirmarEliminarProducto" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="labelModalConfirmarEliminarProducto">Confirmar eliminación</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Desea eliminar el producto <strong id="nombreProductoAEliminar"></strong>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <form asp-action="DeleteProducto" asp-controller="Producto" method="post" class="d-inline">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" id="idProductoAEliminar" name="id" />
+                    <button type="submit" class="btn btn-danger">Sí</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        document.querySelectorAll('.btn-editar-producto').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.getElementById('IdEditar').value = this.dataset.id || '';
+                document.getElementById('NombreEditar').value = this.dataset.nombre || '';
+                document.getElementById('DescripcionEditar').value = this.dataset.descripcion || '';
+                document.getElementById('PrecioEditar').value = this.dataset.precio || '';
+                document.getElementById('CantidadEditar').value = this.dataset.cantidad || '';
+                document.getElementById('FkCategoriaEditar').value = this.dataset.fkcategoria || '';
+            });
+        });
+
+        document.querySelectorAll('.btn-eliminar-producto').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.getElementById('idProductoAEliminar').value = this.dataset.id || '';
+                document.getElementById('nombreProductoAEliminar').textContent = this.dataset.nombre || '';
+            });
+        });
+    </script>
+}
