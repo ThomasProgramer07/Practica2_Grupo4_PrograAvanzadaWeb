@@ -33,4 +33,25 @@ public class ProductoServicio : IProductoServicio
 
         return new Respuesta<ProductoDto?> { Exito = true, Datos = _mapper.Map<ProductoDto>(producto) };
     }
+
+    public async Task<Respuesta<ProductoDto>> CreateProducto(ProductoDto productoDto)
+    {
+        if (productoDto == null)
+        {
+            return new Respuesta<ProductoDto>
+            {
+                Exito = false,
+                Mensaje = "Producto inválido"
+            };
+        }
+
+        var entity = _mapper.Map<DAL.Entidades.Producto>(productoDto);
+        var creada = await _repositorio.Create(entity);
+
+        return new Respuesta<ProductoDto>
+        {
+            Exito = true,
+            Datos = _mapper.Map<ProductoDto>(creada)
+        };
+    }
 }

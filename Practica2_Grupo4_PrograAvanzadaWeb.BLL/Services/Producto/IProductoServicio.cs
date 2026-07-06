@@ -6,5 +6,6 @@ public interface IProductoServicio
 {
     Task<Respuesta<List<ProductoDto>>> GetProductos();
     Task<Respuesta<ProductoDto?>> GetProductoById(int id);
+    Task<Respuesta<ProductoDto>> CreateProducto(ProductoDto productoDto);
 
 }
